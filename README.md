@@ -5,7 +5,9 @@
 > A Simple App for a User to store their daily tasks.
 
 ![screenshot](./screen.png)
+![screenshot](./screen2.png)
 
+- Hard-coded tasks are loaded from local storage
 - A User can cross out completed tasks.
 - Completed Tasks will come back as completed on Refresh.
 
