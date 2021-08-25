@@ -86,11 +86,11 @@ export const render = () => {
     const icon = document.createElement('i');
     icon.className = 'fa fa-bars';
     p.innerHTML = tasks[i].description;
-    // if (tasks[i].isCompleted) {
-    //   p.style.textDecoration = 'line-through';
-    //   checkbox.checked = true;
-    //   li.className = 'delete';
-    // }
+    if (tasks[i].isCompleted) {
+      p.style.textDecoration = 'line-through';
+      checkbox.checked = true;
+      li.className = 'delete';
+    }
     ul.appendChild(li);
     li.appendChild(liDiv);
     liDiv.appendChild(checkbox);
