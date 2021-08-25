@@ -25,10 +25,10 @@ const rendered = () => {
     },
   ];
 
-  // if (localStorage.length === 0) {
-  //   localStorage.setItem('tasks', JSON.stringify(tasks));
-  // }
-  localStorage.setItem('tasks', JSON.stringify(tasks));
+  if (localStorage.length === 0) {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }
+
   const getTasks = JSON.parse(localStorage.getItem('tasks'));
 
   for (let i = 0; i < getTasks.length; i += 1) {
