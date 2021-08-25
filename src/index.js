@@ -85,6 +85,11 @@ export const render = () => {
     checkbox.onclick = completed;
     const icon = document.createElement('i');
     icon.className = 'fa fa-trash';
+    icon.addEventListener('click', () => {
+      ul.removeChild(li);
+      tasks.splice(i, 1);
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    })
     p.innerHTML = tasks[i].description;
     if (tasks[i].isCompleted) {
       p.style.textDecoration = 'line-through';
