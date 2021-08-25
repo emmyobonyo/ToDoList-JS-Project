@@ -14,55 +14,51 @@ export default () => {
   checkbox.forEach((check, idcheck) => {
     if (check.checked) {
       li.forEach((list, idlist) => {
-        if (idlist == idcheck) {
+        if (idlist === idcheck) {
           list.className = 'delete';
           p[idlist].style.textDecoration = 'line-through';
-          let i = list.id;
-          console.log(tasks.length);
+          const i = list.id;
           tasks[i].isCompleted = true;
-          localStorage.setItem('tasks', JSON.stringify(tasks))
+          localStorage.setItem('tasks', JSON.stringify(tasks));
         }
-      })
+      });
     } else {
       li.forEach((list, idlist) => {
-        if (idlist == idcheck) {
+        if (idlist === idcheck) {
           list.className = 'undelete';
           p[idlist].style.textDecoration = 'none';
-          let i = list.id;
+          const i = list.id;
           tasks[i].isCompleted = false;
-          localStorage.setItem('tasks', JSON.stringify(tasks))
+          localStorage.setItem('tasks', JSON.stringify(tasks));
         }
-      })
+      });
     }
-  })
-}
+  });
+};
 
 export const newCompleted = () => {
   const tasks = JSON.parse(localStorage.getItem('tasks'));
   newTask.forEach((check, idcheck) => {
     if (check.checked) {
       newList.forEach((list, idlist) => {
-        if (idlist == idcheck) {
-          list.className = `new-list delete`;
+        if (idlist === idcheck) {
+          list.className = 'new-list delete';
           newParagraph[idlist].style.textDecoration = 'line-through';
-          let i = list.id;
-          console.log(tasks);
-          console.log(list.id);
-          console.log(tasks.length);
+          const i = list.id;
           tasks[i].isCompleted = true;
-          localStorage.setItem('tasks', JSON.stringify(tasks))
+          localStorage.setItem('tasks', JSON.stringify(tasks));
         }
-      })
+      });
     } else {
       newList.forEach((list, idlist) => {
-        if (idlist == idcheck) {
+        if (idlist === idcheck) {
           list.className = 'new-list undelete';
           newParagraph[idlist].style.textDecoration = 'none';
-          let i = list.id;
+          const i = list.id;
           tasks[i].isCompleted = false;
-          localStorage.setItem('tasks', JSON.stringify(tasks))
+          localStorage.setItem('tasks', JSON.stringify(tasks));
         }
-      })
+      });
     }
-  })
-}
+  });
+};

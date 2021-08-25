@@ -1,5 +1,3 @@
-import {render} from './index.js';
-
 const ul = document.getElementById('list-items');
 const p = ul.getElementsByClassName('double-clicked');
 const liDiv = ul.getElementsByClassName('new-div-clicked');
@@ -10,22 +8,22 @@ HTMLCollection.prototype.forEach = Array.prototype.forEach;
 NodeList.prototype.forEach = Array.prototype.forEach;
 
 export default () => {
-  p.forEach((para, idpara) => {
+  p.forEach((para) => {
     para.className = 'none';
     para.style.display = 'none';
     const form = document.createElement('form');
     form.className = 'new-form';
     const input = document.createElement('input');
-    input.type ='text';
+    input.type = 'text';
     input.id = 'newText';
     const button = document.createElement('input');
     button.type = 'submit';
-    button.value = 'Edit'
+    button.value = 'Edit';
     liDiv.forEach((div) => {
       div.appendChild(form);
       form.appendChild(input);
       form.appendChild(button);
-    })
+    });
     button.addEventListener('click', (e) => {
       e.preventDefault();
       const submit = form.newText.value;
@@ -38,11 +36,10 @@ export default () => {
       liDiv.forEach((div) => {
         div.appendChild(p);
       });
-      console.log(tasks);
       localStorage.setItem('tasks', JSON.stringify(tasks));
-    })
-  })
-}
+    });
+  });
+};
 
 export const editOld = () => {
   newParagraph.forEach((para, idpara) => {
@@ -51,21 +48,20 @@ export const editOld = () => {
     const form = document.createElement('form');
     form.className = 'new-form';
     const input = document.createElement('input');
-    input.type ='text';
+    input.type = 'text';
     input.id = 'newText';
     const button = document.createElement('input');
     button.type = 'submit';
-    button.value = 'Edit'
+    button.value = 'Edit';
     oldDiv.forEach((div) => {
       div.appendChild(form);
       form.appendChild(input);
       form.appendChild(button);
-    })
+    });
     button.addEventListener('click', (e) => {
       e.preventDefault();
       const submit = form.newText.value;
       const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-      // const i = tasks[idpara];
       tasks[idpara].description = submit;
       form.style.display = 'none';
       const p = document.createElement('p');
@@ -73,8 +69,7 @@ export const editOld = () => {
       oldDiv.forEach((div) => {
         div.appendChild(p);
       });
-      console.log(tasks);
       localStorage.setItem('tasks', JSON.stringify(tasks));
-    })
-  })
-}
+    });
+  });
+};

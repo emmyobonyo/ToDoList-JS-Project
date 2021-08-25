@@ -1,7 +1,7 @@
 import './style.css';
-import completed, {newCompleted} from './completed';
-import edit, {editOld} from './edit';
-import sort from './sort.js'
+import completed, { newCompleted } from './completed.js';
+import edit, { editOld } from './edit.js';
+import sort from './sort.js';
 // import rendered from './render.js';
 // rendered();
 const ul = document.getElementById('list-items');
@@ -28,9 +28,9 @@ class Task {
     p.className = 'new-paragraph';
     p.addEventListener('dblclick', () => {
       p.className = 'new-paragraph double-clicked';
-      liDiv.className = `new-div new-div-clicked`;
+      liDiv.className = 'new-div new-div-clicked';
       edit();
-    })
+    });
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.className = 'new-checkbox';
@@ -41,7 +41,7 @@ class Task {
       ul.removeChild(li);
       tasks.splice(b, 1);
       localStorage.setItem('tasks', JSON.stringify(tasks));
-    })
+    });
     p.innerHTML = this.description;
     ul.appendChild(li);
     li.appendChild(liDiv);
@@ -54,21 +54,19 @@ class Task {
 
 submitTask.addEventListener('click', () => {
   const description = form.task.value;
-  if (description == []) {
+  if (description === '') {
     error.style.display = 'block';
-  }
-  else {
+  } else {
     error.style.display = 'none';
     const newTask = new Task(description);
     newTask.addTask();
     tasks.push(newTask);
-    console.log(tasks);
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
-})
+});
 
-export const render = () => {
-  for (let i = 0; i<tasks.length; i += 1) {
+const render = () => {
+  for (let i = 0; i < tasks.length; i += 1) {
     const li = document.createElement('li');
     li.id = i;
     const liDiv = document.createElement('div');
@@ -76,9 +74,9 @@ export const render = () => {
     p.className = 'paragraph';
     p.addEventListener('dblclick', () => {
       p.className = 'paragraph old-double-clicked';
-      liDiv.className = `old-div old-div-clicked`;
+      liDiv.className = 'old-div old-div-clicked';
       editOld();
-    })
+    });
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.className = 'checkbox';
@@ -89,7 +87,7 @@ export const render = () => {
       ul.removeChild(li);
       tasks.splice(i, 1);
       localStorage.setItem('tasks', JSON.stringify(tasks));
-    })
+    });
     p.innerHTML = tasks[i].description;
     if (tasks[i].isCompleted) {
       p.style.textDecoration = 'line-through';
@@ -102,7 +100,7 @@ export const render = () => {
     liDiv.appendChild(p);
     li.appendChild(icon);
   }
-}
+};
 
 button.addEventListener('click', sort);
 
