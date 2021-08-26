@@ -84,6 +84,7 @@ const render = () => {
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.className = 'checkbox';
+    checkbox.id = i;
     checkbox.onclick = completed;
     const icon = document.createElement('i');
     icon.className = 'fa fa-trash';

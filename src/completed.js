@@ -10,6 +10,7 @@ HTMLCollection.prototype.forEach = Array.prototype.forEach;
 NodeList.prototype.forEach = Array.prototype.forEach;
 
 export default () => {
+  const newP = ul.getElementsByClassName('tasked-list');
   const tasks = JSON.parse(localStorage.getItem('tasks'));
   checkbox.forEach((check, idcheck) => {
     if (check.checked) {

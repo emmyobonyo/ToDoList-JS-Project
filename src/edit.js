@@ -1,4 +1,6 @@
 const ul = document.getElementById('list-items');
+const li = ul.getElementsByTagName('li');
+const checkboxed = ul.getElementsByClassName('checkbox');
 const p = ul.getElementsByClassName('double-clicked');
 const liDiv = ul.getElementsByClassName('new-div-clicked');
 const newParagraph = ul.getElementsByClassName('old-double-clicked');
@@ -49,6 +51,11 @@ export const editOld = () => {
   newParagraph.forEach((para) => {
     para.className = 'none';
     para.style.display = 'none';
+    checkboxed.forEach((check) => {
+      if (check.id === para.id) {
+        check.style.display = 'none';
+      }
+    })
     const form = document.createElement('form');
     form.className = 'new-form';
     const input = document.createElement('input');
@@ -70,10 +77,31 @@ export const editOld = () => {
       const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
       tasks[para.id].description = submit;
       form.style.display = 'none';
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.className = 'check-margin';
+      checkbox.addEventListener('click', () => {
+        if (checkbox.checked) {
+          p.className = 'tasked';
+          li.forEach((list) => {
+            if (list.id === para.id) {
+              list.className = 'delete';
+            }
+          })
+        } else {
+          p.className = 'untasked';
+          li.forEach((list) => {
+            if (list.id === para.id) {
+              list.className = 'undelete';
+            }
+          })
+        }
+      })
       const p = document.createElement('p');
       p.innerHTML = submit;
       div.forEach((div) => {
         if (div.id === para.id) {
+          div.appendChild(checkbox);
           div.appendChild(p);
         }
       })

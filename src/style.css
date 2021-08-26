@@ -85,6 +85,14 @@ button {
   cursor: pointer;
 }
 
+.tasked {
+  text-decoration: line-through;
+}
+
+.untasked {
+  text-decoration: none;
+}
+
 @media screen and (min-width: 768px) {
   body {
     width: 50%;
