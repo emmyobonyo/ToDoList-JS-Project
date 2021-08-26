@@ -36,7 +36,7 @@ class Task {
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.className = 'new-checkbox';
-    checkbox.id =b;
+    checkbox.id = b;
     checkbox.onclick = newCompleted;
     const icon = document.createElement('i');
     icon.className = 'fa fa-trash';

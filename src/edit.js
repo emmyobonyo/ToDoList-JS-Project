@@ -18,7 +18,7 @@ export default () => {
       if (check.id === para.id) {
         check.style.display = 'none';
       }
-    })
+    });
     const form = document.createElement('form');
     form.className = 'new-form';
     const input = document.createElement('input');
@@ -44,6 +44,8 @@ export default () => {
       const checkbox = document.createElement('input');
       checkbox.type = 'checkbox';
       checkbox.className = 'check-margin';
+      const p = document.createElement('p');
+      p.innerHTML = submit;
       checkbox.addEventListener('click', () => {
         if (checkbox.checked) {
           p.className = 'tasked';
@@ -51,18 +53,16 @@ export default () => {
             if (list.id === para.id) {
               list.className = 'delete';
             }
-          })
+          });
         } else {
           p.className = 'untasked';
           li.forEach((list) => {
             if (list.id === para.id) {
               list.className = 'undelete';
             }
-          })
+          });
         }
-      })
-      const p = document.createElement('p');
-      p.innerHTML = submit;
+      });
       divNew.forEach((div) => {
         if (div.id === para.id) {
           div.appendChild(checkbox);
@@ -82,7 +82,7 @@ export const editOld = () => {
       if (check.id === para.id) {
         check.style.display = 'none';
       }
-    })
+    });
     const form = document.createElement('form');
     form.className = 'new-form';
     const input = document.createElement('input');
@@ -107,6 +107,8 @@ export const editOld = () => {
       const checkbox = document.createElement('input');
       checkbox.type = 'checkbox';
       checkbox.className = 'check-margin';
+      const p = document.createElement('p');
+      p.innerHTML = submit;
       checkbox.addEventListener('click', () => {
         if (checkbox.checked) {
           p.className = 'tasked';
@@ -114,24 +116,22 @@ export const editOld = () => {
             if (list.id === para.id) {
               list.className = 'delete';
             }
-          })
+          });
         } else {
           p.className = 'untasked';
           li.forEach((list) => {
             if (list.id === para.id) {
               list.className = 'undelete';
             }
-          })
+          });
         }
-      })
-      const p = document.createElement('p');
-      p.innerHTML = submit;
+      });
       div.forEach((div) => {
         if (div.id === para.id) {
           div.appendChild(checkbox);
           div.appendChild(p);
         }
-      })
+      });
       localStorage.setItem('tasks', JSON.stringify(tasks));
     });
   });
