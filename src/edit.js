@@ -5,6 +5,7 @@ const p = ul.getElementsByClassName('double-clicked');
 const liDiv = ul.getElementsByClassName('new-div-clicked');
 const newParagraph = ul.getElementsByClassName('old-double-clicked');
 const oldDiv = ul.getElementsByClassName('old-div-clicked');
+const newTask = ul.getElementsByClassName('new-checkbox');
 
 HTMLCollection.prototype.forEach = Array.prototype.forEach;
 NodeList.prototype.forEach = Array.prototype.forEach;
@@ -13,6 +14,11 @@ export default () => {
   p.forEach((para) => {
     para.className = 'none';
     para.style.display = 'none';
+    newTask.forEach((check) => {
+      if (check.id === para.id) {
+        check.style.display = 'none';
+      }
+    })
     const form = document.createElement('form');
     form.className = 'new-form';
     const input = document.createElement('input');
@@ -35,10 +41,31 @@ export default () => {
       const i = tasks.length - 1;
       tasks[i].description = submit;
       form.style.display = 'none';
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.className = 'check-margin';
+      checkbox.addEventListener('click', () => {
+        if (checkbox.checked) {
+          p.className = 'tasked';
+          li.forEach((list) => {
+            if (list.id === para.id) {
+              list.className = 'delete';
+            }
+          })
+        } else {
+          p.className = 'untasked';
+          li.forEach((list) => {
+            if (list.id === para.id) {
+              list.className = 'undelete';
+            }
+          })
+        }
+      })
       const p = document.createElement('p');
       p.innerHTML = submit;
       divNew.forEach((div) => {
         if (div.id === para.id) {
+          div.appendChild(checkbox);
           div.appendChild(p);
         }
       });
