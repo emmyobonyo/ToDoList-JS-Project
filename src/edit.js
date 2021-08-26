@@ -20,12 +20,14 @@ export default () => {
     button.type = 'submit';
     button.value = 'Edit';
     liDiv.forEach((div) => {
+      div.className = 'new-none-div';
       div.appendChild(form);
       form.appendChild(input);
       form.appendChild(button);
     });
     button.addEventListener('click', (e) => {
       e.preventDefault();
+      const divNew = ul.getElementsByClassName('new-none-div');
       const submit = form.newText.value;
       const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
       const i = tasks.length - 1;
@@ -33,8 +35,10 @@ export default () => {
       form.style.display = 'none';
       const p = document.createElement('p');
       p.innerHTML = submit;
-      liDiv.forEach((div) => {
-        div.appendChild(p);
+      divNew.forEach((div) => {
+        if (div.id === para.id) {
+          div.appendChild(p);
+        }
       });
       localStorage.setItem('tasks', JSON.stringify(tasks));
     });
@@ -42,7 +46,7 @@ export default () => {
 };
 
 export const editOld = () => {
-  newParagraph.forEach((para, idpara) => {
+  newParagraph.forEach((para) => {
     para.className = 'none';
     para.style.display = 'none';
     const form = document.createElement('form');
@@ -54,21 +58,25 @@ export const editOld = () => {
     button.type = 'submit';
     button.value = 'Edit';
     oldDiv.forEach((div) => {
+      div.className = 'none-div';
       div.appendChild(form);
       form.appendChild(input);
       form.appendChild(button);
     });
     button.addEventListener('click', (e) => {
       e.preventDefault();
+      const div = ul.getElementsByClassName('none-div');
       const submit = form.newText.value;
       const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-      tasks[idpara].description = submit;
+      tasks[para.id].description = submit;
       form.style.display = 'none';
       const p = document.createElement('p');
       p.innerHTML = submit;
-      oldDiv.forEach((div) => {
-        div.appendChild(p);
-      });
+      div.forEach((div) => {
+        if (div.id === para.id) {
+          div.appendChild(p);
+        }
+      })
       localStorage.setItem('tasks', JSON.stringify(tasks));
     });
   });

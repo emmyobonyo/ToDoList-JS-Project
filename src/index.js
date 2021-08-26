@@ -23,9 +23,11 @@ class Task {
     const b = tasks.length;
     li.id = b;
     const liDiv = document.createElement('div');
+    liDiv.id = b;
     liDiv.className = 'new-div';
     const p = document.createElement('p');
     p.className = 'new-paragraph';
+    p.id = b;
     p.addEventListener('dblclick', () => {
       p.className = 'new-paragraph double-clicked';
       liDiv.className = 'new-div new-div-clicked';
@@ -70,8 +72,10 @@ const render = () => {
     const li = document.createElement('li');
     li.id = i;
     const liDiv = document.createElement('div');
+    liDiv.id = i;
     const p = document.createElement('p');
     p.className = 'paragraph';
+    p.id = i;
     p.addEventListener('dblclick', () => {
       p.className = 'paragraph old-double-clicked';
       liDiv.className = 'old-div old-div-clicked';
