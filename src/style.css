@@ -1,3 +1,100 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  color: lightsalmon;
+  border-bottom: 3px solid black;
+  padding: 5px 10px;
+}
+
+.fa-refresh {
+  align-self: center;
+}
+
 body {
-  background-color: yellow;
+  background-color: skyblue;
+  width: 80%;
+  margin: auto;
+  margin-top: 40px;
+  border: 3px solid black;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  border: 1px solid black;
+}
+
+ul li:nth-child(even) {
+  background-color: lightgreen;
+}
+
+p {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+button {
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  width: 100%;
+}
+
+.input-text {
+  padding: 10px;
+  width: 100%;
+  border: none;
+  font-size: 14px;
+}
+
+.fa-sign-in {
+  padding: 10px;
+  background-color: white;
+  color: grey;
+  cursor: pointer;
+}
+
+.new-form {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+#error {
+  color: red;
+  padding: 10px;
+  text-align: center;
+  display: none;
+}
+
+.fa-trash {
+  cursor: pointer;
+}
+
+.tasked {
+  text-decoration: line-through;
+}
+
+.untasked {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    width: 50%;
+  }
 }
