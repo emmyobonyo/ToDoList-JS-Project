@@ -66,6 +66,31 @@ button {
   padding: 10px;
   background-color: white;
   color: grey;
+  cursor: pointer;
+}
+
+.new-form {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+#error {
+  color: red;
+  padding: 10px;
+  text-align: center;
+  display: none;
+}
+
+.fa-trash {
+  cursor: pointer;
+}
+
+.tasked {
+  text-decoration: line-through;
+}
+
+.untasked {
+  text-decoration: none;
 }
 
 @media screen and (min-width: 768px) {
