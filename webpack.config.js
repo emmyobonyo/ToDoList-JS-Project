@@ -15,7 +15,7 @@ module.exports = {
   output: {
     filename: 'main.js',
     // path: path.resolve(__dirname, 'dist'),
-    path: '/ToDoList-JS-Project/dist',
+    path: '/ToDoList-JS-Project/dist/',
     clean: true,
   },
   module: {
