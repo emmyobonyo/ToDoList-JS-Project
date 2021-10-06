@@ -4,7 +4,7 @@
 
 > A Simple App for a User to store their daily tasks.
 
-[Live Demo](https://emmyobonyo.github.io/ToDoList-JS-Project/dist/)
+[Live Demo](https://emmyobonyo.github.io/ToDoList-JS-Project/)
 
 ![screenshot](./screen.png)
 ![screenshot](./screen2.png)
