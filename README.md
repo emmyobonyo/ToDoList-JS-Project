@@ -4,14 +4,14 @@
 
 > A Simple App for a User to store their daily tasks.
 
-[Live Demo](https://emmyobonyo.github.io/ToDoList-JS-Project/)
-
 ![screenshot](./screen.png)
 ![screenshot](./screen2.png)
 
 - Hard-coded tasks are loaded from local storage
 - A User can cross out completed tasks.
 - Completed Tasks will come back as completed on Refresh.
+
+[Live Demo](https://emmyobonyo.github.io/ToDoList-JS-Project/)
 
 ## Built With
 
