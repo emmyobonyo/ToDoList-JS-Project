@@ -2,7 +2,7 @@
 
 # To Do List
 
-> A Simple App for a User to store their daily tasks.
+> A Web To Do List.
 
 ![screenshot](./screen.png)
 ![screenshot](./screen2.png)
